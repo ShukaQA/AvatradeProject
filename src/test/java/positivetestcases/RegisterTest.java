@@ -7,7 +7,7 @@ import util.BaseTest;
 public class RegisterTest extends BaseTest {
 
     @Test
-    public void test1() throws InterruptedException {
+    public void registrationTest() throws InterruptedException {
         homePage.clickRegisterButton();
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
         registrationPopUpPage.setPasswordInput("Password!123");
@@ -22,7 +22,5 @@ public class RegisterTest extends BaseTest {
         userRegistrationPage.setFlatInput("Test Flat");
 
         Thread.sleep(10000);
-
-
     }
 }
