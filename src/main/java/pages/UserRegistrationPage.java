@@ -29,6 +29,11 @@ public class UserRegistrationPage {
     private final By dateOfBirthPath = By.xpath("//input[@name='date-of-birth-day']");
     private final By countryInputPath = By.xpath("//input[@name='Country']");
     private final By cityInputPath = By.xpath("//input[@name='City']");
+    private final By streetInputPath = By.xpath("//input[@name='Street']");
+    private final By streetNumberInputPath = By.xpath("//input[@name='BuildingNumber']");
+    private final By flatInputPath = By.xpath("//input[@name='Flat']");
+
+    private final By loadingOverlayPath = By.xpath("//div[@class='v-overlay v-overlay--absolute v-overlay--active theme--dark']");
 
 
     public void setFirstNameInput(String name) {
@@ -47,7 +52,6 @@ public class UserRegistrationPage {
     public void setLastNameInput(String name) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         WebElement nameInput = wait.until(ExpectedConditions.presenceOfElementLocated(lastNameInputPath));
-        nameInput.click();
         nameInput.sendKeys(name);
         driver.switchTo().defaultContent();
     }
@@ -64,20 +68,52 @@ public class UserRegistrationPage {
         driver.switchTo().defaultContent();
     }
 
-    public void setCountryInput(String text) {
+    public void setCountryInput(String country) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         wait.until(ExpectedConditions.presenceOfElementLocated(countryInputPath));
         List<WebElement> countryInputs = driver.findElements(countryInputPath);
-        countryInputs.get(0).sendKeys(text);
+        countryInputs.get(0).sendKeys(country);
         countryInputs.get(0).sendKeys(Keys.TAB);
         driver.switchTo().defaultContent();
     }
 
     public void setCityInput(String city) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
+        waitForLoaderDisappear();
         WebElement nameInput = wait.until(ExpectedConditions.presenceOfElementLocated(cityInputPath));
-        nameInput.click();
+        wait.until(ExpectedConditions.elementToBeClickable(cityInputPath));
+        nameInput.sendKeys(Keys.PAGE_DOWN);
         nameInput.sendKeys(city);
+        driver.switchTo().defaultContent();
+    }
+
+    private void waitForLoaderDisappear() {
+        WebElement loader = driver.findElement(loadingOverlayPath);
+        wait.until(ExpectedConditions.visibilityOf(loader));
+        wait.until(ExpectedConditions.invisibilityOf(loader));
+    }
+
+    public void setStreetInput(String street) {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(streetInputPath));
+        nameInput.click();
+        nameInput.sendKeys(street);
+        driver.switchTo().defaultContent();
+    }
+
+    public void setStreetNumberInput(String number) {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(streetNumberInputPath));
+        nameInput.click();
+        nameInput.sendKeys(number);
+        driver.switchTo().defaultContent();
+    }
+
+    public void setFlatInput(String flat) {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(flatInputPath));
+        nameInput.click();
+        nameInput.sendKeys(flat);
         driver.switchTo().defaultContent();
     }
 

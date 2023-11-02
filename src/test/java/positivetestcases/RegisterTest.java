@@ -15,9 +15,12 @@ public class RegisterTest extends BaseTest {
         userRegistrationPage.setFirstNameInput("Test Name");
         userRegistrationPage.setLastNameInput("Test Surname");
         userRegistrationPage.setDateOfBirthInput("11121996");
-        userRegistrationPage.setCountryInput("Afghanistan");
-        Thread.sleep(10000);
+        userRegistrationPage.setCountryInput("France");
         userRegistrationPage.setCityInput("Test City");
+        userRegistrationPage.setStreetInput("Test Street");
+        userRegistrationPage.setStreetNumberInput("123");
+        userRegistrationPage.setFlatInput("Test Flat");
+
         Thread.sleep(10000);
 
 

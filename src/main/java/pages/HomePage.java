@@ -16,20 +16,17 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-
-    //@FindBy(xpath = "//a[@class='btn btn-orange animate-btn']")
-    //WebElement registerButton;
     private final By registerButtonPath = By.xpath("//a[@class='btn btn-orange animate-btn']");
 
     public void clickRegisterButton() {
         driver.navigate().refresh();
 
         /*
-        WebElement registerBut = wait.until(ExpectedConditions.elementToBeClickable(registerButton));
+        WebElement registerBut = wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
         try {
-            wait.until(ExpectedConditions.textToBe(registerButton, "Create my account"));
+            wait.until(ExpectedConditions.textToBe(registerButtonPath, "Create my account"));
         } catch (Exception e) {
-            wait.until(ExpectedConditions.textToBe(registerButton, "Open trading account"));
+            wait.until(ExpectedConditions.textToBe(registerButtonPath, "Open trading account"));
         }*/
 
         WebElement registerButton = driver.findElement(registerButtonPath);
