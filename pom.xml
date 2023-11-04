@@ -15,8 +15,8 @@
         <testng.version>7.1.0</testng.version>
         <extentreports.version>4.0.8</extentreports.version>
         <extentreports.adapter.version>1.0.3</extentreports.adapter.version>
-        <lombok.version>1.18.12</lombok.version>
-        <webdrivermanager.version>4.2.0</webdrivermanager.version>
+        <lombok.version>1.18.26</lombok.version>
+        <webdrivermanager.version>5.3.2</webdrivermanager.version>
         <log4j.version>2.13.3</log4j.version>
     </properties>
     <build>
@@ -47,18 +47,6 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-        <!--        todo update extentreports to new release      -->
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>${extentreports.version}</version>
-        </dependency>
-        <!--        todo update extentreports-testng-adapter to new release      -->
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports-testng-adapter</artifactId>
-            <version>${extentreports.adapter.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,16 +56,6 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>

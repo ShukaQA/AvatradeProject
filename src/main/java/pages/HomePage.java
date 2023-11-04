@@ -20,21 +20,17 @@ public class HomePage {
     private final By registerButtonPath = By.xpath("//a[@class='btn btn-orange animate-btn']");
 
     public void clickRegisterButton() {
-        driver.navigate().refresh();
         WebElement registerButton = driver.findElement(registerButtonPath);
         try {
             wait.until(ExpectedConditions.textToBe(registerButtonPath, "Create my account"));
             wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
             registerButton.click();
         } catch (Exception e) {
-            if (registerButton.getText().equals("Register Now")) {
-                wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
-                registerButton.click();
-            } else {
+            if (!registerButton.getText().equals("Register Now")) {
                 wait.until(ExpectedConditions.textToBe(registerButtonPath, "Open trading account"));
-                wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
-                registerButton.click();
             }
+            wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+            registerButton.click();
         }
     }
 
