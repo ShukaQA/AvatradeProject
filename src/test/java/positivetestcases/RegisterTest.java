@@ -28,7 +28,7 @@ public class RegisterTest extends BaseTest {
     }
 
     @Test(dataProvider = "registrationScenarios")
-    public void registrationTest(ScenarioPojo data) {
+    public void registrationTest(ScenarioPojo data) throws InterruptedException {
         if (data.getScenarioName().equals("France Registration")) {
             fillRegistrationFormForFrance(data.getData());
         } else if (data.getScenarioName().equals("Afghanistan Registration")) {

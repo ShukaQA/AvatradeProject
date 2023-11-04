@@ -21,18 +21,21 @@ public class HomePage {
 
     public void clickRegisterButton() {
         driver.navigate().refresh();
-        WebElement registerButton = wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
-        registerButton.click();
-
-         /*
-        WebElement registerBut = wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+        WebElement registerButton = driver.findElement(registerButtonPath);
         try {
             wait.until(ExpectedConditions.textToBe(registerButtonPath, "Create my account"));
+            wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+            registerButton.click();
         } catch (Exception e) {
-            wait.until(ExpectedConditions.textToBe(registerButtonPath, "Open trading account"));
-        }*/
-
-        //WebElement registerButton = driver.findElement(registerButtonPath);
+            if (registerButton.getText().equals("Register Now")) {
+                wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+                registerButton.click();
+            } else {
+                wait.until(ExpectedConditions.textToBe(registerButtonPath, "Open trading account"));
+                wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+                registerButton.click();
+            }
+        }
     }
 
 }
