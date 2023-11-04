@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.util.List;
 
-import static util.RobotExample.typeText;
+import static util.Utils.typeText;
 
 public class UserRegistrationPage {
     private final WebDriver driver;
@@ -32,6 +32,9 @@ public class UserRegistrationPage {
     private final By streetInputPath = By.xpath("//input[@name='Street']");
     private final By streetNumberInputPath = By.xpath("//input[@name='BuildingNumber']");
     private final By flatInputPath = By.xpath("//input[@name='Flat']");
+    private final By zipCodeInputPath = By.xpath("//input[@name='ZipCode']");
+    private final By phoneInputPath = By.xpath("//input[@name='Phone']");
+    private final By submitButtonPath = By.xpath("//button[@type='submit']");
 
     private final By loadingOverlayPath = By.xpath("//div[@class='v-overlay v-overlay--absolute v-overlay--active theme--dark']");
 
@@ -39,8 +42,8 @@ public class UserRegistrationPage {
     public void setFirstNameInput(String name) {
         wait.until(ExpectedConditions.presenceOfElementLocated(registrationFrame));
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement nameInput = wait.until(ExpectedConditions.presenceOfElementLocated(firstNameInputPath));
-        nameInput.click();
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(firstNameInputPath));
+        element.click();
         try {
             typeText(new Robot(), name);
         } catch (AWTException e) {
@@ -51,15 +54,15 @@ public class UserRegistrationPage {
 
     public void setLastNameInput(String name) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement nameInput = wait.until(ExpectedConditions.presenceOfElementLocated(lastNameInputPath));
-        nameInput.sendKeys(name);
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(lastNameInputPath));
+        element.sendKeys(name);
         driver.switchTo().defaultContent();
     }
 
     public void setDateOfBirthInput(String date) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement dateInput = wait.until(ExpectedConditions.presenceOfElementLocated(dateOfBirthPath));
-        dateInput.click();
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(dateOfBirthPath));
+        element.click();
         try {
             typeText(new Robot(), date);
         } catch (AWTException e) {
@@ -71,19 +74,19 @@ public class UserRegistrationPage {
     public void setCountryInput(String country) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         wait.until(ExpectedConditions.presenceOfElementLocated(countryInputPath));
-        List<WebElement> countryInputs = driver.findElements(countryInputPath);
-        countryInputs.get(0).sendKeys(country);
-        countryInputs.get(0).sendKeys(Keys.TAB);
+        List<WebElement> element = driver.findElements(countryInputPath);
+        element.get(0).sendKeys(country);
+        element.get(0).sendKeys(Keys.TAB);
         driver.switchTo().defaultContent();
     }
 
     public void setCityInput(String city) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         waitForLoaderDisappear();
-        WebElement nameInput = wait.until(ExpectedConditions.presenceOfElementLocated(cityInputPath));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(cityInputPath));
         wait.until(ExpectedConditions.elementToBeClickable(cityInputPath));
-        nameInput.sendKeys(Keys.PAGE_DOWN);
-        nameInput.sendKeys(city);
+        element.sendKeys(Keys.PAGE_DOWN);
+        element.sendKeys(city);
         driver.switchTo().defaultContent();
     }
 
@@ -95,25 +98,48 @@ public class UserRegistrationPage {
 
     public void setStreetInput(String street) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(streetInputPath));
-        nameInput.click();
-        nameInput.sendKeys(street);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(streetInputPath));
+        element.click();
+        element.sendKeys(street);
         driver.switchTo().defaultContent();
     }
 
     public void setStreetNumberInput(String number) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(streetNumberInputPath));
-        nameInput.click();
-        nameInput.sendKeys(number);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(streetNumberInputPath));
+        element.click();
+        element.sendKeys(number);
         driver.switchTo().defaultContent();
     }
 
     public void setFlatInput(String flat) {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement nameInput = wait.until(ExpectedConditions.elementToBeClickable(flatInputPath));
-        nameInput.click();
-        nameInput.sendKeys(flat);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(flatInputPath));
+        element.click();
+        element.sendKeys(flat);
+        driver.switchTo().defaultContent();
+    }
+
+    public void setZipCodeInput(String zipCode) {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(zipCodeInputPath));
+        element.click();
+        element.sendKeys(zipCode);
+        driver.switchTo().defaultContent();
+    }
+
+    public void setPhoneInput(String phone) {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(phoneInputPath));
+        element.click();
+        element.sendKeys(phone);
+        driver.switchTo().defaultContent();
+    }
+
+    public void clickSubmitButton() {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(submitButtonPath));
+        element.click();
         driver.switchTo().defaultContent();
     }
 

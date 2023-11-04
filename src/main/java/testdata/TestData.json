@@ -1,0 +1,36 @@
+{
+  "scenarios": [
+    {
+      "scenarioName": "France Registration",
+      "data": {
+        "password": "Password!123",
+        "firstName" : "Test Name",
+        "lastName" : "Test Surname",
+        "dateOfBirth" : "11121996",
+        "country" : "France",
+        "city" : "Test City",
+        "street" : "Test Street",
+        "streetNumber": "123",
+        "flat" : "Test Flat",
+        "zipCode" : "1086",
+        "phoneNumber" : "1234567"
+      }
+    },
+    {
+      "scenarioName": "Afghanistan Registration",
+      "data": {
+        "password": "Password!123",
+        "firstName" : "Afghan Name",
+        "lastName" : "Afghan Surname",
+        "dateOfBirth" : "11121996",
+        "country" : "Afghanistan",
+        "city" : "Afghan City",
+        "street" : "Afghan Street",
+        "streetNumber": "123",
+        "flat" : "Afghan Flat",
+        "zipCode" : "1086",
+        "phoneNumber" : "1234567"
+      }
+    }
+  ]
+}
