@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
@@ -20,8 +21,10 @@ public class HomePage {
 
     public void clickRegisterButton() {
         driver.navigate().refresh();
+        WebElement registerButton = wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
+        registerButton.click();
 
-        /*
+         /*
         WebElement registerBut = wait.until(ExpectedConditions.elementToBeClickable(registerButtonPath));
         try {
             wait.until(ExpectedConditions.textToBe(registerButtonPath, "Create my account"));
@@ -29,8 +32,7 @@ public class HomePage {
             wait.until(ExpectedConditions.textToBe(registerButtonPath, "Open trading account"));
         }*/
 
-        WebElement registerButton = driver.findElement(registerButtonPath);
-        registerButton.click();
+        //WebElement registerButton = driver.findElement(registerButtonPath);
     }
 
 }
