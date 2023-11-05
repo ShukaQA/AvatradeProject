@@ -16,8 +16,11 @@ public class YourFinancialDetailsPage {
     }
 
     private final By dropDownPath = By.xpath("//input[@name='EmploymentStatus']");
+    private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
 
     public void clickDropDown() {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
         driver.findElement(dropDownPath).sendKeys("1");
+        driver.switchTo().defaultContent();
     }
 }

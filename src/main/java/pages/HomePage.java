@@ -13,7 +13,7 @@ public class HomePage {
 
     public HomePage(WebDriver webDriver) {
         this.driver = webDriver;
-        this.wait = new WebDriverWait(this.driver, 5);
+        this.wait = new WebDriverWait(this.driver, 10);
         PageFactory.initElements(driver, this);
     }
 
