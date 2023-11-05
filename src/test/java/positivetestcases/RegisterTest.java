@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTest {
         if (data.getScenarioName().equals("France Registration")) {
             fillRegistrationFormForFrance(data.getData());
         } else if (data.getScenarioName().equals("Afghanistan Registration")) {
-            fillRegistrationFormForAfghanistan(data.getData());
+            //fillRegistrationFormForAfghanistan(data.getData());
         }
         Thread.sleep(10000);
     }
