@@ -6,7 +6,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 import pages.RegistrationPopUpPage;
-import pages.UserRegistrationPage;
+import pages.YourFinancialDetailsPage;
+import pages.YourPersonalDetailsPage;
 
 import static util.PropertyLoader.returnConfigValue;
 
@@ -16,8 +17,8 @@ public abstract class BaseTest {
 
     protected HomePage homePage;
     protected RegistrationPopUpPage registrationPopUpPage;
-
-    protected UserRegistrationPage userRegistrationPage;
+    protected YourPersonalDetailsPage yourPersonalDetailsPage;
+    protected YourFinancialDetailsPage yourFinancialDetailsPage;
 
     public static WebDriver getDriver() {
         return driver;
@@ -30,7 +31,7 @@ public abstract class BaseTest {
         driver.get(returnConfigValue("url.base"));
         homePage = new HomePage(driver);
         registrationPopUpPage = new RegistrationPopUpPage(driver);
-        userRegistrationPage = new UserRegistrationPage(driver);
+        yourPersonalDetailsPage = new YourPersonalDetailsPage(driver);
     }
 
     @AfterMethod

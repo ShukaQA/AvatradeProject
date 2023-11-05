@@ -13,11 +13,11 @@ import java.util.List;
 
 import static util.Utils.typeText;
 
-public class UserRegistrationPage {
+public class YourPersonalDetailsPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    public UserRegistrationPage(WebDriver webDriver) {
+    public YourPersonalDetailsPage(WebDriver webDriver) {
         this.driver = webDriver;
         this.wait = new WebDriverWait(driver, 30);
         PageFactory.initElements(driver, this);

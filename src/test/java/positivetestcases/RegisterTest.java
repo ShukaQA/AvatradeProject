@@ -34,26 +34,29 @@ public class RegisterTest extends BaseTest {
         } else if (data.getScenarioName().equals("Afghanistan Registration")) {
             fillRegistrationFormForAfghanistan(data.getData());
         }
+        Thread.sleep(10000);
     }
 
-    public void fillRegistrationFormForFrance(DataPojo data) {
+    public void fillRegistrationFormForFrance(DataPojo data) throws InterruptedException {
         homePage.clickRegisterButton();
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
         registrationPopUpPage.setPasswordInput(data.getPassword());
         registrationPopUpPage.clickSubmitButton();
-        userRegistrationPage.setFirstNameInput(data.getFirstName());
-        userRegistrationPage.setLastNameInput(data.getLastName());
-        userRegistrationPage.setDateOfBirthInput(data.getDateOfBirth());
-        userRegistrationPage.setCountryInput(data.getCountry());
-        userRegistrationPage.setCityInput(data.getCity());
-        userRegistrationPage.setStreetInput(data.getStreet());
-        userRegistrationPage.setStreetNumberInput(data.getStreetNumber());
-        userRegistrationPage.setFlatInput(data.getFlat());
-        userRegistrationPage.setZipCodeInput(data.getZipCode());
-        userRegistrationPage.setPhoneInput(data.getPhoneNumber());
-        userRegistrationPage.clickSubmitButton();
+        yourPersonalDetailsPage.setFirstNameInput(data.getFirstName());
+        yourPersonalDetailsPage.setLastNameInput(data.getLastName());
+        yourPersonalDetailsPage.setDateOfBirthInput(data.getDateOfBirth());
+        yourPersonalDetailsPage.setCountryInput(data.getCountry());
+        yourPersonalDetailsPage.setCityInput(data.getCity());
+        yourPersonalDetailsPage.setStreetInput(data.getStreet());
+        yourPersonalDetailsPage.setStreetNumberInput(data.getStreetNumber());
+        yourPersonalDetailsPage.setFlatInput(data.getFlat());
+        yourPersonalDetailsPage.setZipCodeInput(data.getZipCode());
+        yourPersonalDetailsPage.setPhoneInput(data.getPhoneNumber());
+        yourPersonalDetailsPage.clickSubmitButton();
 
-        driver.get(returnConfigValue("url.base"));
+        Thread.sleep(5000);
+        yourFinancialDetailsPage.clickDropDown();
+        getDriver().get(returnConfigValue("url.base"));
     }
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) {
@@ -61,18 +64,18 @@ public class RegisterTest extends BaseTest {
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
         registrationPopUpPage.setPasswordInput(data.getPassword());
         registrationPopUpPage.clickSubmitButton();
-        userRegistrationPage.setFirstNameInput(data.getFirstName());
-        userRegistrationPage.setLastNameInput(data.getLastName());
-        userRegistrationPage.setDateOfBirthInput(data.getDateOfBirth());
-        userRegistrationPage.setCountryInput(data.getCountry());
-        userRegistrationPage.setCityInput(data.getCity());
-        userRegistrationPage.setStreetInput(data.getStreet());
-        userRegistrationPage.setStreetNumberInput(data.getStreetNumber());
-        userRegistrationPage.setFlatInput(data.getFlat());
-        userRegistrationPage.setZipCodeInput(data.getZipCode());
-        userRegistrationPage.setPhoneInput(data.getPhoneNumber());
-        userRegistrationPage.clickSubmitButton();
+        yourPersonalDetailsPage.setFirstNameInput(data.getFirstName());
+        yourPersonalDetailsPage.setLastNameInput(data.getLastName());
+        yourPersonalDetailsPage.setDateOfBirthInput(data.getDateOfBirth());
+        yourPersonalDetailsPage.setCountryInput(data.getCountry());
+        yourPersonalDetailsPage.setCityInput(data.getCity());
+        yourPersonalDetailsPage.setStreetInput(data.getStreet());
+        yourPersonalDetailsPage.setStreetNumberInput(data.getStreetNumber());
+        yourPersonalDetailsPage.setFlatInput(data.getFlat());
+        yourPersonalDetailsPage.setZipCodeInput(data.getZipCode());
+        yourPersonalDetailsPage.setPhoneInput(data.getPhoneNumber());
+        yourPersonalDetailsPage.clickSubmitButton();
 
-        driver.get(returnConfigValue("url.base"));
+        getDriver().get(returnConfigValue("url.base"));
     }
 }
