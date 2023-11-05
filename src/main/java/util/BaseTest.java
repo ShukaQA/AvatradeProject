@@ -32,6 +32,7 @@ public abstract class BaseTest {
         homePage = new HomePage(driver);
         registrationPopUpPage = new RegistrationPopUpPage(driver);
         yourPersonalDetailsPage = new YourPersonalDetailsPage(driver);
+        yourFinancialDetailsPage = new YourFinancialDetailsPage(driver);
     }
 
     @AfterMethod
