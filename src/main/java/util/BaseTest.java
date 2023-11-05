@@ -18,6 +18,7 @@ public abstract class BaseTest {
     protected YourFinancialDetailsPage yourFinancialDetailsPage;
     protected TradingExperiencePage tradingExperiencePage;
     protected TermsAndConditionsPage termsAndConditionsPage;
+    protected WarningPopUpPage warningPopUpPage;
 
     public static WebDriver getDriver() {
         return driver;
@@ -34,6 +35,7 @@ public abstract class BaseTest {
         yourFinancialDetailsPage = new YourFinancialDetailsPage(driver);
         tradingExperiencePage = new TradingExperiencePage(driver);
         termsAndConditionsPage = new TermsAndConditionsPage(driver);
+        warningPopUpPage = new WarningPopUpPage(driver);
     }
 
     @AfterMethod

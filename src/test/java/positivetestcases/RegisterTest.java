@@ -76,8 +76,9 @@ public class RegisterTest extends BaseTest {
         tradingExperiencePage.clickSubmitButton();
 
         termsAndConditionsPage.setTermsAndConditionButtonTrue();
-        Thread.sleep(5000);
         tradingExperiencePage.clickSubmitButton();
+
+        warningPopUpPage.clickAgreeButton();
 
     }
 

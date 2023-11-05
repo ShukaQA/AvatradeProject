@@ -100,7 +100,7 @@ public class TradingExperiencePage {
     public void clickSubmitButton() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(submitButtonPath));
-        element.click();
+        wait.until(ExpectedConditions.visibilityOf(element)).click();
         driver.switchTo().defaultContent();
     }
 }
