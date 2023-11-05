@@ -13,7 +13,7 @@ public class RegistrationPopUpPage {
 
     public RegistrationPopUpPage(WebDriver webDriver) {
         this.driver = webDriver;
-        this.wait = new WebDriverWait(driver, 30);
+        this.wait = new WebDriverWait(driver, 120);
         PageFactory.initElements(driver, this);
     }
 

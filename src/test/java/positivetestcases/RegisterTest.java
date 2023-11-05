@@ -54,9 +54,9 @@ public class RegisterTest extends BaseTest {
         yourPersonalDetailsPage.setPhoneInput(data.getPhoneNumber());
         yourPersonalDetailsPage.clickSubmitButton();
 
-        Thread.sleep(5000);
-        yourFinancialDetailsPage.clickDropDown();
-        getDriver().get(returnConfigValue("url.base"));
+        yourFinancialDetailsPage.clickPrimaryOccupationDropdownClickFirst();
+        yourFinancialDetailsPage.currentlyEmployedDropdownClickFirst();
+        //getDriver().get(returnConfigValue("url.base"));
     }
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) {
