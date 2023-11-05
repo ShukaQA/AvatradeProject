@@ -106,5 +106,7 @@ public class RegisterTest extends BaseTest {
         yourFinancialDetailsPage.setInvestAmountDropdown(data.getFinancialDetails().getInvestAmount());
         yourFinancialDetailsPage.clickSubmitButton();
 
+        //TODO afghanistan registration steps...
+
     }
 }
