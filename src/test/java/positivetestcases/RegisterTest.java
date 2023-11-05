@@ -36,46 +36,75 @@ public class RegisterTest extends BaseTest {
         }
         Thread.sleep(10000);
     }
-
-    public void fillRegistrationFormForFrance(DataPojo data) throws InterruptedException {
+    public void fillRegistrationFormForFrance(DataPojo data) {
         homePage.clickRegisterButton();
+
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
-        registrationPopUpPage.setPasswordInput(data.getPassword());
+        registrationPopUpPage.setPasswordInput(data.getRegistration().getPassword());
         registrationPopUpPage.clickSubmitButton();
-        yourPersonalDetailsPage.setFirstNameInput(data.getFirstName());
-        yourPersonalDetailsPage.setLastNameInput(data.getLastName());
-        yourPersonalDetailsPage.setDateOfBirthInput(data.getDateOfBirth());
-        yourPersonalDetailsPage.setCountryInput(data.getCountry());
-        yourPersonalDetailsPage.setCityInput(data.getCity());
-        yourPersonalDetailsPage.setStreetInput(data.getStreet());
-        yourPersonalDetailsPage.setStreetNumberInput(data.getStreetNumber());
-        yourPersonalDetailsPage.setFlatInput(data.getFlat());
-        yourPersonalDetailsPage.setZipCodeInput(data.getZipCode());
-        yourPersonalDetailsPage.setPhoneInput(data.getPhoneNumber());
+        registrationPopUpPage.waitForRegistrationLoader();
+
+        yourPersonalDetailsPage.setFirstNameInput(data.getRegistration().getFirstName());
+        yourPersonalDetailsPage.setLastNameInput(data.getPersonalDetails().getLastName());
+        yourPersonalDetailsPage.setDateOfBirthInput(data.getPersonalDetails().getDateOfBirth());
+        yourPersonalDetailsPage.setCountryInput(data.getPersonalDetails().getCountry());
+        yourPersonalDetailsPage.setCityInput(data.getPersonalDetails().getCity());
+        yourPersonalDetailsPage.setStreetInput(data.getPersonalDetails().getStreet());
+        yourPersonalDetailsPage.setStreetNumberInput(data.getPersonalDetails().getStreetNumber());
+        yourPersonalDetailsPage.setFlatInput(data.getPersonalDetails().getFlat());
+        yourPersonalDetailsPage.setZipCodeInput(data.getPersonalDetails().getZipCode());
+        yourPersonalDetailsPage.setPhoneInput(data.getPersonalDetails().getPhoneNumber());
         yourPersonalDetailsPage.clickSubmitButton();
 
-        yourFinancialDetailsPage.clickPrimaryOccupationDropdownClickFirst();
-        yourFinancialDetailsPage.currentlyEmployedDropdownClickFirst();
-        //getDriver().get(returnConfigValue("url.base"));
+        yourFinancialDetailsPage.setPrimaryOccupationDropdown(data.getFinancialDetails().getPrimaryOccupation());
+        yourFinancialDetailsPage.setCurrentlyEmployedDropdown(data.getFinancialDetails().getCurrentlyEmployed());
+        yourFinancialDetailsPage.setSourceOfTheFundsDropdown(data.getFinancialDetails().getSourceOfTheFunds());
+        yourFinancialDetailsPage.setEstimatedAnnualIncomeDropdown(data.getFinancialDetails().getEstimatedAnnualIncome());
+        yourFinancialDetailsPage.setEstimatedValueDropdown(data.getFinancialDetails().getEstimatedValue());
+        yourFinancialDetailsPage.setInvestAmountDropdown(data.getFinancialDetails().getInvestAmount());
+        yourFinancialDetailsPage.clickSubmitButton();
+
+        tradingExperiencePage.clickYesButton();
+        tradingExperiencePage.setTradingExperienceForexDropdown(data.getTradingExperience().getTradingExperienceForex());
+        tradingExperiencePage.setAverageTradeSizeDropdown(data.getTradingExperience().getAverageTradeSize());
+        tradingExperiencePage.setTradingWithLeverageDropdown(data.getTradingExperience().getTradingWithLeverage());
+        tradingExperiencePage.setTradingWithLeverageMaximumDropdown(data.getTradingExperience().getTradingWithLeverageMaximum());
+        tradingExperiencePage.setOpenPositionDropdown(data.getTradingExperience().getOpenPosition());
+        tradingExperiencePage.setTradeWithUsDropdown(data.getTradingExperience().getTradeWithUs());
+        tradingExperiencePage.clickCheckBoxButton();
+        tradingExperiencePage.clickSubmitButton();
+
+        termsAndConditionsPage.setTermsAndConditionButtonTrue();
+
     }
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) {
         homePage.clickRegisterButton();
+
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
-        registrationPopUpPage.setPasswordInput(data.getPassword());
+        registrationPopUpPage.setPasswordInput(data.getRegistration().getPassword());
         registrationPopUpPage.clickSubmitButton();
-        yourPersonalDetailsPage.setFirstNameInput(data.getFirstName());
-        yourPersonalDetailsPage.setLastNameInput(data.getLastName());
-        yourPersonalDetailsPage.setDateOfBirthInput(data.getDateOfBirth());
-        yourPersonalDetailsPage.setCountryInput(data.getCountry());
-        yourPersonalDetailsPage.setCityInput(data.getCity());
-        yourPersonalDetailsPage.setStreetInput(data.getStreet());
-        yourPersonalDetailsPage.setStreetNumberInput(data.getStreetNumber());
-        yourPersonalDetailsPage.setFlatInput(data.getFlat());
-        yourPersonalDetailsPage.setZipCodeInput(data.getZipCode());
-        yourPersonalDetailsPage.setPhoneInput(data.getPhoneNumber());
+        registrationPopUpPage.waitForRegistrationLoader();
+
+        yourPersonalDetailsPage.setFirstNameInput(data.getRegistration().getFirstName());
+        yourPersonalDetailsPage.setLastNameInput(data.getPersonalDetails().getLastName());
+        yourPersonalDetailsPage.setDateOfBirthInput(data.getPersonalDetails().getDateOfBirth());
+        yourPersonalDetailsPage.setCountryInput(data.getPersonalDetails().getCountry());
+        yourPersonalDetailsPage.setCityInput(data.getPersonalDetails().getCity());
+        yourPersonalDetailsPage.setStreetInput(data.getPersonalDetails().getStreet());
+        yourPersonalDetailsPage.setStreetNumberInput(data.getPersonalDetails().getStreetNumber());
+        yourPersonalDetailsPage.setFlatInput(data.getPersonalDetails().getFlat());
+        yourPersonalDetailsPage.setZipCodeInput(data.getPersonalDetails().getZipCode());
+        yourPersonalDetailsPage.setPhoneInput(data.getPersonalDetails().getPhoneNumber());
         yourPersonalDetailsPage.clickSubmitButton();
 
-        getDriver().get(returnConfigValue("url.base"));
+        yourFinancialDetailsPage.setPrimaryOccupationDropdown(data.getFinancialDetails().getPrimaryOccupation());
+        yourFinancialDetailsPage.setCurrentlyEmployedDropdown(data.getFinancialDetails().getCurrentlyEmployed());
+        yourFinancialDetailsPage.setSourceOfTheFundsDropdown(data.getFinancialDetails().getSourceOfTheFunds());
+        yourFinancialDetailsPage.setEstimatedAnnualIncomeDropdown(data.getFinancialDetails().getEstimatedAnnualIncome());
+        yourFinancialDetailsPage.setEstimatedValueDropdown(data.getFinancialDetails().getEstimatedValue());
+        yourFinancialDetailsPage.setInvestAmountDropdown(data.getFinancialDetails().getInvestAmount());
+        yourFinancialDetailsPage.clickSubmitButton();
+
     }
 }

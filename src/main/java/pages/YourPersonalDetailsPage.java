@@ -15,7 +15,7 @@ import static util.Utils.typeText;
 public class YourPersonalDetailsPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    private static final int EXPLICIT_WAIT = 30;
+    private static final int EXPLICIT_WAIT = 60;
 
     public YourPersonalDetailsPage(WebDriver webDriver) {
         this.driver = webDriver;

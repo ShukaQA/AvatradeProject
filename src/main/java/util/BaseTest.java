@@ -4,10 +4,7 @@ import driver.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
-import pages.RegistrationPopUpPage;
-import pages.YourFinancialDetailsPage;
-import pages.YourPersonalDetailsPage;
+import pages.*;
 
 import static util.PropertyLoader.returnConfigValue;
 
@@ -19,6 +16,8 @@ public abstract class BaseTest {
     protected RegistrationPopUpPage registrationPopUpPage;
     protected YourPersonalDetailsPage yourPersonalDetailsPage;
     protected YourFinancialDetailsPage yourFinancialDetailsPage;
+    protected TradingExperiencePage tradingExperiencePage;
+    protected TermsAndConditionsPage termsAndConditionsPage;
 
     public static WebDriver getDriver() {
         return driver;
@@ -33,6 +32,8 @@ public abstract class BaseTest {
         registrationPopUpPage = new RegistrationPopUpPage(driver);
         yourPersonalDetailsPage = new YourPersonalDetailsPage(driver);
         yourFinancialDetailsPage = new YourFinancialDetailsPage(driver);
+        tradingExperiencePage = new TradingExperiencePage(driver);
+        termsAndConditionsPage = new TermsAndConditionsPage(driver);
     }
 
     @AfterMethod
