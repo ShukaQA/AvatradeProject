@@ -36,7 +36,8 @@ public class RegisterTest extends BaseTest {
         }
         Thread.sleep(10000);
     }
-    public void fillRegistrationFormForFrance(DataPojo data) {
+
+    public void fillRegistrationFormForFrance(DataPojo data) throws InterruptedException {
         homePage.clickRegisterButton();
 
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
@@ -75,6 +76,8 @@ public class RegisterTest extends BaseTest {
         tradingExperiencePage.clickSubmitButton();
 
         termsAndConditionsPage.setTermsAndConditionButtonTrue();
+        Thread.sleep(5000);
+        tradingExperiencePage.clickSubmitButton();
 
     }
 

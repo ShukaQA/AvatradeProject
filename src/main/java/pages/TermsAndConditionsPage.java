@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,13 +17,12 @@ public class TermsAndConditionsPage {
     }
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
-    private final By termsAndConditionsRadioPath = By.xpath("//input[@name='TermsAndConditions']");
+    private final By termsAndConditionsRadioPath = By.xpath("//div[@class='v-input--selection-controls__input']");
 
     public void setTermsAndConditionButtonTrue() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement radioButtonTerms =
-                wait.until(ExpectedConditions.presenceOfElementLocated(termsAndConditionsRadioPath));
-        radioButtonTerms.sendKeys("true");
+        wait.until(ExpectedConditions.presenceOfElementLocated(termsAndConditionsRadioPath));
+        driver.findElements(termsAndConditionsRadioPath).get(0).click();
         driver.switchTo().defaultContent();
     }
 }
