@@ -19,7 +19,7 @@ public class TradingExperiencePage {
     }
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
-    private final By yesButtonPath = By.xpath("//span[text()='Yes']//..//..");
+    private final By yesButtonPath = By.xpath("//span[text()='Yes']/../..");
     private final By tradingExperienceForexPath = By.xpath("//input[@data-automation='NumOfTimesTradedinForexCfds']");
     private final By averageTradeSizePath = By.xpath("//input[@data-automation='WhatWasTheAverageSizeOfTrades']");
 

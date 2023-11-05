@@ -23,6 +23,7 @@ public class TermsAndConditionsPage {
     public void setTermsAndConditionButtonTrue() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(termsAndConditionsRadioPath));
+        wait.until(ExpectedConditions.visibilityOf(button));
         button.click();
         driver.switchTo().defaultContent();
     }
