@@ -3,18 +3,17 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
     private final WebDriver driver;
     private final WebDriverWait wait;
+    private static final int EXPLICIT_WAIT = 10;
 
     public HomePage(WebDriver webDriver) {
         this.driver = webDriver;
-        this.wait = new WebDriverWait(this.driver, 10);
-        PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(this.driver, EXPLICIT_WAIT);
     }
 
     private final By registerButtonPath = By.xpath("//a[@class='btn btn-orange animate-btn']");

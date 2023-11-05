@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,11 +15,11 @@ import static util.Utils.typeText;
 public class YourPersonalDetailsPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
+    private static final int EXPLICIT_WAIT = 30;
 
     public YourPersonalDetailsPage(WebDriver webDriver) {
         this.driver = webDriver;
-        this.wait = new WebDriverWait(driver, 30);
-        PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, EXPLICIT_WAIT);
     }
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");

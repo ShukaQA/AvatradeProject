@@ -3,18 +3,18 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPopUpPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
+    private static final int EXPLICIT_WAIT = 120;
+
 
     public RegistrationPopUpPage(WebDriver webDriver) {
         this.driver = webDriver;
-        this.wait = new WebDriverWait(driver, 120);
-        PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, EXPLICIT_WAIT);
     }
 
     private final By mailInputPath = By.id("input-email");
