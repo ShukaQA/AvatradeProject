@@ -19,7 +19,7 @@ public class TradingExperiencePage {
     }
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
-    private final By yesButtonPath = By.xpath("//span[text()='Yes']/../..");
+    private final By yesButtonPath = By.xpath("//span[@id]");
     private final By tradingExperienceForexPath = By.xpath("//input[@data-automation='NumOfTimesTradedinForexCfds']");
     private final By averageTradeSizePath = By.xpath("//input[@data-automation='WhatWasTheAverageSizeOfTrades']");
 
@@ -33,7 +33,8 @@ public class TradingExperiencePage {
 
     public void clickYesButton() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(yesButtonPath));
+        wait.until(ExpectedConditions.presenceOfElementLocated(yesButtonPath));
+        WebElement element = driver.findElements(yesButtonPath).get(0);
         element.click();
         driver.switchTo().defaultContent();
     }
