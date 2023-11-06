@@ -18,11 +18,25 @@ public class WarningPopUpPage {
     }
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
-    private final By agreeButtonPath = By.xpath("//span[@id]");
+    private final By agreeButtonPath = By.xpath("//div[@class='v-input__slot']");
+    private final By completeButtonPath = By.xpath("//span[text()='Complete Registration']/..");
 
+    public boolean checkIfPopUpExists() {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        wait.until(ExpectedConditions.presenceOfElementLocated(agreeButtonPath));
+        driver.switchTo().defaultContent();
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(agreeButtonPath));
+    }
     public void clickAgreeButton() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(agreeButtonPath));
+        wait.until(ExpectedConditions.visibilityOf(element)).click();
+        driver.switchTo().defaultContent();
+    }
+
+    public void clickCompleteButton() {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(completeButtonPath));
         wait.until(ExpectedConditions.visibilityOf(element)).click();
         driver.switchTo().defaultContent();
     }

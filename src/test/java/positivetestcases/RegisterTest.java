@@ -78,7 +78,10 @@ public class RegisterTest extends BaseTest {
         termsAndConditionsPage.setTermsAndConditionButtonTrue();
         tradingExperiencePage.clickSubmitButton();
 
-        warningPopUpPage.clickAgreeButton();
+        if (warningPopUpPage.checkIfPopUpExists()) {
+            warningPopUpPage.clickAgreeButton();
+            warningPopUpPage.clickCompleteButton();
+        }
 
     }
 
