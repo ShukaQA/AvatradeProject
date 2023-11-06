@@ -17,14 +17,11 @@ public class AlmostTherePage {
         this.wait = new WebDriverWait(driver, EXPLICIT_WAIT);
     }
 
-    private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
-    private final By verifyButtonPath = By.xpath("//span[@class='v-icon notranslate action-button-go-icon theme--light']");
+    private final By verifyButtonPath = By.xpath("//div[@class='action-button']");
 
     public void clickVerifyButton() {
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(verifyButtonPath));
-        driver.switchTo().frame(driver.findElement(registrationFrame));
         wait.until(ExpectedConditions.visibilityOf(element)).click();
-        driver.switchTo().defaultContent();
     }
 
 }

@@ -32,9 +32,8 @@ public class RegisterTest extends BaseTest {
         if (data.getScenarioName().equals("France Registration")) {
             fillRegistrationFormForFrance(data.getData());
         } else if (data.getScenarioName().equals("Afghanistan Registration")) {
-            //fillRegistrationFormForAfghanistan(data.getData());
+            fillRegistrationFormForAfghanistan(data.getData());
         }
-        Thread.sleep(10000);
     }
 
     public void fillRegistrationFormForFrance(DataPojo data) throws InterruptedException {
@@ -81,12 +80,14 @@ public class RegisterTest extends BaseTest {
         try {
             warningPopUpPage.clickAgreeButton();
             warningPopUpPage.clickCompleteButton();
-        } catch(Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
+        Thread.sleep(10000);
         almostTherePage.clickVerifyButton();
     }
 
-    public void fillRegistrationFormForAfghanistan(DataPojo data) {
+    public void fillRegistrationFormForAfghanistan(DataPojo data) throws InterruptedException {
         homePage.clickRegisterButton();
 
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
@@ -114,7 +115,17 @@ public class RegisterTest extends BaseTest {
         yourFinancialDetailsPage.setInvestAmountDropdown(data.getFinancialDetails().getInvestAmount());
         yourFinancialDetailsPage.clickSubmitButton();
 
-        //TODO afghanistan registration steps...
+        termsAndConditionsPage.setTermsAndConditionAfghanButtonTrue();
+        tradingExperiencePage.clickSubmitButton();
+
+        try {
+            warningPopUpPage.clickAgreeButton();
+            warningPopUpPage.clickCompleteButton();
+        } catch (Exception ignored) {
+        }
+
+        Thread.sleep(10000);
+        almostTherePage.clickVerifyButton();
 
     }
 }

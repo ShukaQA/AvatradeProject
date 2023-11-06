@@ -19,10 +19,18 @@ public class TermsAndConditionsPage {
 
     private final By registrationFrame = By.xpath("//iframe[@title='Iframe']");
     private final By termsAndConditionsRadioPath = By.xpath("//span[text()=' and the ']");
+    private final By termsAndConditionsAfghanRadioPath = By.xpath("//span[text()='I have read, understood and accepted the']");
 
     public void setTermsAndConditionButtonTrue() {
         driver.switchTo().frame(driver.findElement(registrationFrame));
         WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(termsAndConditionsRadioPath));
+        wait.until(ExpectedConditions.visibilityOf(button)).click();
+        driver.switchTo().defaultContent();
+    }
+
+    public void setTermsAndConditionAfghanButtonTrue() {
+        driver.switchTo().frame(driver.findElement(registrationFrame));
+        WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(termsAndConditionsAfghanRadioPath));
         wait.until(ExpectedConditions.visibilityOf(button)).click();
         driver.switchTo().defaultContent();
     }
