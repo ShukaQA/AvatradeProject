@@ -83,9 +83,7 @@ public class RegisterTest extends BaseTest {
             warningPopUpPage.clickCompleteButton();
         } catch(Exception ignored) {}
 
-
-
-
+        almostTherePage.clickVerifyButton();
     }
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) {

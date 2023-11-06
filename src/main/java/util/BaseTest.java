@@ -19,6 +19,7 @@ public abstract class BaseTest {
     protected TradingExperiencePage tradingExperiencePage;
     protected TermsAndConditionsPage termsAndConditionsPage;
     protected WarningPopUpPage warningPopUpPage;
+    protected AlmostTherePage almostTherePage;
 
     public static WebDriver getDriver() {
         return driver;
@@ -36,6 +37,7 @@ public abstract class BaseTest {
         tradingExperiencePage = new TradingExperiencePage(driver);
         termsAndConditionsPage = new TermsAndConditionsPage(driver);
         warningPopUpPage = new WarningPopUpPage(driver);
+        almostTherePage = new AlmostTherePage(driver);
     }
 
     @AfterMethod
