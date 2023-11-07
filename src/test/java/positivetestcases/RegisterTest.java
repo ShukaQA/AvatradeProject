@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import models.DataPojo;
 import models.ScenarioPojo;
 import models.ScenariosPojo;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import util.BaseTest;
@@ -36,7 +37,7 @@ public class RegisterTest extends BaseTest {
         }
     }
 
-    public void fillRegistrationFormForFrance(DataPojo data) throws InterruptedException {
+    public void fillRegistrationFormForFrance(DataPojo data) {
         homePage.clickRegisterButton();
 
         registrationPopUpPage.setMailInput(new Faker().internet().emailAddress());
@@ -80,11 +81,13 @@ public class RegisterTest extends BaseTest {
         try {
             warningPopUpPage.clickAgreeButton();
             warningPopUpPage.clickCompleteButton();
-        } catch (Exception ignored) {
+            almostTherePage.clickVerifyInFrameButton();
+            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
+        } catch (Exception e) {
+            almostTherePage.clickVerifyButton();
+            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         }
 
-        Thread.sleep(10000);
-        almostTherePage.clickVerifyButton();
     }
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) throws InterruptedException {
