@@ -124,11 +124,12 @@ public class RegisterTest extends BaseTest {
         try {
             warningPopUpPage.clickAgreeButton();
             warningPopUpPage.clickCompleteButton();
-        } catch (Exception ignored) {
+            almostTherePage.clickVerifyInFrameButton();
+            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
+        } catch (Exception e) {
+            almostTherePage.clickVerifyButton();
+            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         }
-
-        Thread.sleep(10000);
-        almostTherePage.clickVerifyButton();
 
     }
 }
