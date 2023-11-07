@@ -35,6 +35,7 @@ public class RegisterTest extends BaseTest {
         } else if (data.getScenarioName().equals("Afghanistan Registration")) {
             fillRegistrationFormForAfghanistan(data.getData());
         }
+        Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
     }
 
     public void fillRegistrationFormForFrance(DataPojo data) {
@@ -82,10 +83,8 @@ public class RegisterTest extends BaseTest {
             warningPopUpPage.clickAgreeButton();
             warningPopUpPage.clickCompleteButton();
             almostTherePage.clickVerifyInFrameButton();
-            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         } catch (Exception e) {
             almostTherePage.clickVerifyButton();
-            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         }
 
     }
@@ -125,10 +124,8 @@ public class RegisterTest extends BaseTest {
             warningPopUpPage.clickAgreeButton();
             warningPopUpPage.clickCompleteButton();
             almostTherePage.clickVerifyInFrameButton();
-            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         } catch (Exception e) {
             almostTherePage.clickVerifyButton();
-            Assert.assertEquals(accountPage.getPopUpTitleText(),"Updated Trading Instrument Symbol Names");
         }
 
     }
